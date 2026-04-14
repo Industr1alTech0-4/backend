@@ -1,6 +1,5 @@
 import { pgTable, serial, text, integer, primaryKey, real } from 'drizzle-orm/pg-core';
 
-// Таблица насосов (Pomps)
 export const pomps = pgTable('pomps', {
     pompId: serial('pomp_id').primaryKey(),
     name: text('name').notNull(),
@@ -8,7 +7,7 @@ export const pomps = pgTable('pomps', {
 
 // Таблица историй (Story)
 export const stories = pgTable('stories', {
-    // pompId задаем вручную (обычно это ID текущего насоса)
+    // pompId задаем вручную 
     pompId: integer('pomp_id')
         .references(() => pomps.pompId)
         .notNull(),
@@ -21,9 +20,6 @@ export const stories = pgTable('stories', {
 
     resultStatus: text('result_status').notNull(),
     timeToBreakdown: text('time_to_breakdown').notNull(),
-}, (table) => {
-    return {
-        // Составной ключ: (pompId, storageId)
-        pk: primaryKey({ columns: [table.pompId, table.storageId] }),
-    };
-});
+}, (table) => [
+    primaryKey({ columns: [table.pompId, table.storageId] })
+]);

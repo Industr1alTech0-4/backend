@@ -1,16 +1,18 @@
-import express from 'express';  
-import cors from 'cors'; 
+import express from 'express';
+import cors from 'cors';
+import 'dotenv/config';
 
-const app = express(); 
-const port = 3000; 
+import pompRoutes from './routes/pomps.route';
 
-// app.use(cors({
-//     origin: 'http://localhost:5173',
-//     credentials: true
-// }))
-//пока что не нужен 
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+
+// Все роуты из файла pompRoutes теперь доступны по пути /api/pomps
+app.use('/api/pomps', pompRoutes);
 
 app.listen(port, () => {
-    console.log('сервер запущен на:')
-    console.log(`http://localhost:${port}/`)
-}); 
+    console.log('🚀 Сервер запущен на:');
+    console.log(`http://localhost:${port}/`);
+});
