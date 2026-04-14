@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/app.ts"
+    "dev": "nodemon src/app.ts",
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +15,7 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^25.5.2",
-    "dotenv": "^17.4.1",
+    "dotenv": "^17.4.2",
     "eslint": "^10.2.0",
     "express": "^5.2.1",
     "install": "^0.13.0",
@@ -25,6 +27,11 @@
   },
   "dependencies": {
     "@types/cors": "^2.8.19",
-    "cors": "^2.8.6"
+    "@types/pg": "^8.20.0",
+    "cors": "^2.8.6",
+    "drizzle-kit": "^0.31.10",
+    "drizzle-orm": "^0.45.2",
+    "pg": "^8.20.0",
+    "tsx": "^4.21.0"
   }
 }
