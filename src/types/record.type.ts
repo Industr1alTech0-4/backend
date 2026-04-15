@@ -1,5 +1,5 @@
 export type Record = {
-    UserId: number,
+    PompId: number,
     StorageId: number,
     Matrix: number[][4],
     ResultStatus: string, 
