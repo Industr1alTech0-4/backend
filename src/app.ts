@@ -18,7 +18,7 @@ app.use(express.json());
 
 app.use('/api/pomps', pompRoutes);
 app.use('/api/story', storyRoutes);
-app.use ('/api/model', modelRoute); 
+app.use ('/api', modelRoute); 
 
 app.listen(port, () => {
     console.log('🚀 Сервер запущен на:');
